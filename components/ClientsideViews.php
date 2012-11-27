@@ -28,7 +28,7 @@ class ClientsideViews extends CApplicationComponent {
             Yii::setPathOfAlias( 'clientsideviews', realpath( dirname( __FILE__ ).'/..' ) );
         
         $generatedTemplateFile = Yii::getPathOfAlias( 'clientsideviews.assets.javascripts' ) . DIRECTORY_SEPARATOR . 'mustache.tpl.js';
-        if (!is_file($generatedTemplateFile)) {
+        if (!is_file($generatedTemplateFile) || YII_DEBUG) {
             $this->refreshMustacheTemplates();            
         }
         
